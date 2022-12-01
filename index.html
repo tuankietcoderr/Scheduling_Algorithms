@@ -16,6 +16,10 @@
       }
       body {
         margin: 5%;
+        min-height: 100vh;
+      }
+      main {
+        min-height: 100vh;
       }
       label {
         display: block;
@@ -61,49 +65,82 @@
         background-color: #96d4d4;
         border: none;
       }
+      #final_result,
+      #gantt_title {
+        display: none;
+      }
     </style>
   </head>
   <body>
-    <h1 style="text-align: center">Round Robin là dễ</h1>
-    <div style="text-align: center">
-      <cite
-        >- Made by
-        <a href="https://github.com/tuankietcoderr" target="_blank"
-          >tuankietcoder</a
+    <main>
+      <h1 style="text-align: center">Round Robin là dễ</h1>
+      <div style="text-align: center">
+        <cite
+          >- Made by
+          <a href="https://github.com/tuankietcoderr" target="_blank"
+            >tuankietcoder</a
+          >
+          (Lười CSS quá đi) -</cite
         >
-        (Lười CSS quá đi) -</cite
-      >
-    </div>
-    <div>
+      </div>
+      <div>
+        <label>
+          <span>Number of process</span>
+          <input type="number" id="num_process" min="0" step="1" />
+        </label>
+        <button id="btn_submit_num_process">Submit</button>
+      </div>
+      <div id="processes"></div>
+      <button id="submit">Submit</button>
+      <table id="process_table">
+        <thead>
+          <th>Process ID</th>
+          <th>Arrival time</th>
+          <th>Burst time</th>
+        </thead>
+        <tbody id="process_table_body"></tbody>
+      </table>
       <label>
-        <span>Number of process</span>
-        <input type="number" id="num_process" min="0" step="1" />
+        <span>Quantum time</span>
+        <input type="number" id="quantum_time" />
       </label>
-      <button id="btn_submit_num_process">Submit</button>
-    </div>
-    <div id="processes"></div>
-    <button id="submit">Submit</button>
-    <table id="process_table">
-      <thead>
-        <th>Process ID</th>
-        <th>Arrival time</th>
-        <th>Burst time</th>
-      </thead>
-      <tbody id="process_table_body"></tbody>
-    </table>
-    <label>
-      <span>Quantum time</span>
-      <input type="number" id="quantum_time" />
-    </label>
-    <button id="calculate">Calculate</button>
-    <button id="reset">Reset</button>
-    <table id="result">
-      <tbody>
-        <tr id="result_process_id"></tr>
-        <tr id="result_process_burst"></tr>
-        <tr id="result_process_stack"></tr>
-      </tbody>
-    </table>
+      <button id="calculate">Calculate</button>
+
+      <h2 id="gantt_title">Gantt chart</h2>
+      <table id="result">
+        <tbody>
+          <tr id="result_process_id"></tr>
+          <tr id="result_process_burst"></tr>
+          <tr id="result_process_stack"></tr>
+        </tbody>
+      </table>
+      <div id="final_result">
+        <h2>Result</h2>
+        <table id="final">
+          <thead>
+            <th>Process ID</th>
+            <th>Arrival Time</th>
+            <th>Burst Time</th>
+            <th>Completion Time</th>
+            <th>Turnaround Time</th>
+            <th>Waiting Time</th>
+          </thead>
+          <tbody id="final_body"></tbody>
+        </table>
+        <h3>Avarage Waiting Time: <span id="awt"></span></h3>
+        <h3>Avarage Turnaround Time: <span id="atat"></span></h3>
+        <button id="reset">Reset</button>
+      </div>
+    </main>
+    <footer style="margin-top: 2rem">
+      <cite
+        ><a
+          href="https://www.skellainnovations.com/round-robin-algorithm-in-os/"
+          target="_blank"
+          >Nguồn tham khảo</a
+        ></cite
+      >
+    </footer>
     <script src="rr.js" defer></script>
   </body>
 </html>

@@ -12,7 +12,8 @@ let at = [],
   btm = [],
   tt,
   wt;
-let att, awt;
+let att = 0,
+  awt = 0;
 let NOP;
 
 const $ = (id) => {
@@ -57,7 +58,6 @@ function Processes() {
 }
 
 $("btn_submit_num_process").onclick = () => {
-  console.log($("num_process").value);
   Processes();
   if ($("num_process").value != 0) {
     $("submit").style.display = "block";
@@ -119,12 +119,11 @@ $("calculate").onclick = () => {
   $("result_process_burst").appendChild(td);
   $("result_process_stack").innerHTML = "";
   do {
-    console.log(rqi.filter((i) => i !== undefined));
     const curr_p_stack = rqi.filter((i) => i !== undefined);
+    console.log(curr_p_stack);
     const curr_p_stack_td = $c("td");
     curr_p_stack_td.innerHTML = curr_p_stack.join("<br/>");
     $("result_process_stack").appendChild(curr_p_stack_td);
-
     if (flg == 0) {
       st = at[0];
       //---ReduceBT
@@ -177,15 +176,43 @@ $("calculate").onclick = () => {
     $("result_process_burst").appendChild(td_burst);
   } while (noe != 0);
 
+  $("gantt_title").style.display = "block";
+  $("final_result").style.display = "block";
+
   for (let x = 0; x < NOP; x++) {
     tt = ct[x] - at[x];
     wt = tt - bt[x];
     //! print
     // cout<<"P"<<x+1<<" \t "<<at[x]<<" \t "<<bt[x]<<" \t "<<ct[x]<<" \t "<<tt<<" \t "<<wt<<"\n";
-    awt = awt + wt;
-    att = att + tt;
+    const row = $c("tr");
+    const index_cell = $c("td");
+    index_cell.innerHTML = x + 1;
+    const arrival_cell = $c("td");
+    arrival_cell.innerHTML = at[x];
+    const burst_cell = $c("td");
+    burst_cell.innerHTML = bt[x];
+    const completion_cell = $c("td");
+    completion_cell.innerHTML = ct[x];
+    const turnaround_cell = $c("td");
+    turnaround_cell.innerHTML = tt;
+    const waiting_cell = $c("td");
+    waiting_cell.innerHTML = wt;
+    row.appendChild(index_cell);
+    row.appendChild(arrival_cell);
+    row.appendChild(burst_cell);
+    row.appendChild(completion_cell);
+    row.appendChild(turnaround_cell);
+    row.appendChild(waiting_cell);
+    $("final_body").appendChild(row);
+    awt = parseInt(awt) + parseInt(wt);
+    att = parseInt(att) + parseInt(tt);
   } //for
-
+  console.log(awt, att);
+  awt = parseInt(awt) / NOP;
+  att = parseInt(att) / NOP;
+  //! print
+  $("awt").textContent = awt;
+  $("atat").textContent = att;
   function SearchStack01(pnt, tm) {
     for (let x = pnt + 1; x < NOP; x++) {
       if (at[x] <= tm) {
