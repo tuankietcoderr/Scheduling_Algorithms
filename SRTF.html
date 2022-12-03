@@ -4,12 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Round Robin</title>
-    <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
     <main>
-      <h1 style="text-align: center">Round Robin là dễ</h1>
+      <h1 style="text-align: center">Shortest Remaining Time First là dễ</h1>
       <div style="text-align: center">
         <cite
           >- Made by
@@ -36,10 +34,6 @@
         </thead>
         <tbody id="process_table_body"></tbody>
       </table>
-      <label>
-        <span>Quantum time</span>
-        <input type="number" id="quantum_time" />
-      </label>
       <button id="calculate">Calculate</button>
 
       <h2 id="gantt_title">Gantt chart</h2>
@@ -47,7 +41,6 @@
         <tbody>
           <tr id="result_process_id"></tr>
           <tr id="result_process_burst"></tr>
-          <tr id="result_process_stack"></tr>
         </tbody>
       </table>
       <div id="final_result">
@@ -68,7 +61,6 @@
         <button id="reset">Reset</button>
       </div>
     </main>
-    <script src="../index.js" defer></script>
-    <script src="../script/rr.js" defer></script>
+    <script src="./index.js" defer></script>
   </body>
 </html>
