@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 5%;
+  min-height: 100vh;
+}
+
+header > nav > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+header > nav > ul > li {
+  list-style-type: none;
+}
+
+header > nav > ul > li > a {
+  padding: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header > nav > ul > li > a:hover {
+  color: red;
+}
+
+main {
+  min-height: 100vh;
+}
+label {
+  display: block;
+  margin: 1rem 0;
+}
+#submit {
+  display: none;
+}
+#process_table {
+  display: none;
+}
+#calculate {
+  display: none;
+}
+table {
+  cursor: pointer;
+  width: 100%;
+}
+table,
+th,
+td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+th,
+td {
+  background-color: #96d4d4;
+  padding: 1rem;
+}
+td:hover {
+  background-color: blue;
+  color: white;
+}
+#result td {
+  padding: 1rem 0;
+  border: none;
+}
+#result td:hover {
+  background-color: #96d4d4;
+  color: black;
+}
+#result {
+  background-color: #96d4d4;
+  border: none;
+}
+#final_result,
+#gantt_title {
+  display: none;
+}
+
+a.active {
+  text-decoration: underline;
+  color: red;
+}

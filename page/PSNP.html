@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PS</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <main>
+      <h1 style="text-align: center">Priority Scheduling là dễ</h1>
+      <div style="text-align: center">
+        <cite
+          >- Made by
+          <a href="https://github.com/tuankietcoderr" target="_blank"
+            >tuankietcoder</a
+          >
+          (Lười CSS quá đi) -</cite
+        >
+      </div>
+      <div>
+        <label>
+          <span>Number of process</span>
+          <input type="number" id="num_process" min="0" step="1" />
+        </label>
+        <button id="btn_submit_num_process">Submit</button>
+      </div>
+      <div id="processes"></div>
+      <button id="submit">Submit</button>
+      <table id="process_table">
+        <thead>
+          <th>Process ID</th>
+          <th>Arrival time</th>
+          <th>Burst time</th>
+          <th>Priority</th>
+        </thead>
+        <tbody id="process_table_body"></tbody>
+      </table>
+      <div id="mode" style="display: none;">
+        Mode: 
+        <select id="select_mode">
+          <option value="asc" selected>Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
+      <button id="calculate">Calculate</button>
+
+      <h2 id="gantt_title">Gantt chart</h2>
+      <table id="result">
+        <tbody>
+          <tr id="result_process_id"></tr>
+          <tr id="result_process_burst"></tr>
+        </tbody>
+      </table>
+      <div id="final_result">
+        <h2>Result</h2>
+        <table id="final">
+          <thead>
+            <th>Process ID</th>
+            <th>Arrival Time</th>
+            <th>Burst Time</th>
+            <th>Completion Time</th>
+            <th>Turnaround Time</th>
+            <th>Waiting Time</th>
+          </thead>
+          <tbody id="final_body"></tbody>
+        </table>
+        <h3>Average Waiting Time: <span id="awt"></span></h3>
+        <h3>Average Turnaround Time: <span id="atat"></span></h3>
+        <button id="reset">Reset</button>
+      </div>
+    </main>
+    <script src="../index.js" defer></script>
+    <script src="../script/ps.js" defer></script>
+    </main>
+  </body>
+</html>

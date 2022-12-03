@@ -16,22 +16,6 @@ let att = 0,
   awt = 0;
 let NOP;
 
-const $ = (id) => {
-  return document.getElementById(id);
-};
-
-const $q = (query) => {
-  return document.querySelector(query);
-};
-
-const $qa = (query) => {
-  return document.querySelectorAll(query);
-};
-
-const $c = (el) => {
-  return document.createElement(el);
-};
-
 // cout<<endl<<"GANTT CHART"<<endl<<at[0];
 
 function Processes() {
